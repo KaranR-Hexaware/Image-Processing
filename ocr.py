@@ -1,4 +1,5 @@
 # USAGE
+# Create a folder 'images' on where you put this file and put the input file in 'images' folder
 # python ocr.py --image images/example_01.png 
 # python ocr.py --image images/example_02.png  --preprocess blur
 
@@ -19,7 +20,6 @@ args = vars(ap.parse_args())
 
 # load the example image and convert it to grayscale
 image = cv2.imread(args["image"])
-#image = cv2.imread('C:/Users/29890/Desktop/pythonfiles/practice code from online -pytesseract/tesseract-python/images')
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 cv2.imshow("Image", gray)
@@ -46,6 +46,8 @@ text = pytesseract.image_to_string(Image.open(filename))
 os.remove(filename)
 print(text)
 text = str(text)
+
+# save the output in a text file
 var1 = open("output1.txt","w+",encoding='utf-8')
 var1.write(text)
 var1.close()
